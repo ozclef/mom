@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Para mamá — Con todo mi cariño</title>
+  <style>
+    :root{
+      --bg:#f7f6f3;
+      --card:#ffffff;
+      --accent:#6b5b95;
+      --muted:#6b7280;
+      --radius:18px;
+      --maxw:900px;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+
+    html,body{height:100%}
+    body{
+      margin:0;
+      background: linear-gradient(180deg, #f3f7fb 0%, var(--bg) 100%);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:32px;
+      color:#222;
+    }
+
+    main#container{
+      width:100%;
+      max-width:var(--maxw);
+      background:var(--card);
+      border-radius:var(--radius);
+      box-shadow: 0 10px 30px rgba(20,20,30,0.08);
+      overflow:hidden;
+      transform: translateY(8px);
+      opacity:0;
+      animation:fadeIn 700ms ease-out forwards;
+    }
+
+    @keyframes fadeIn {
+      to { opacity:1; transform: translateY(0); }
+    }
+
+    header{
+      display:flex;
+      gap:20px;
+      align-items:center;
+      padding:28px;
+      background: linear-gradient(90deg, rgba(107,91,149,0.08), rgba(107,91,149,0.02));
+      border-bottom:1px solid rgba(15,15,20,0.03);
+    }
+
+    .avatar{
+      width:96px;
+      height:96px;
+      border-radius:14px;
+      overflow:hidden;
+      flex:0 0 96px;
+      background:linear-gradient(180deg,#fff,#eee);
+      display:grid;
+      place-items:center;
+      box-shadow: 0 6px 18px rgba(107,91,149,0.06);
+    }
+    .avatar img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+
+    header h1{
+      margin:0;
+      font-size:20px;
+      letter-spacing: -0.2px;
+    }
+    header p{
+      margin:6px 0 0 0;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    section.content{
+      padding:28px;
+      display:grid;
+      gap:18px;
+      line-height:1.5;
+    }
+
+    .lead{
+      font-size:16px;
+      color:#111;
+    }
+
+    .quote {
+      background: linear-gradient(90deg, rgba(107,91,149,0.04), rgba(107,91,149,0.02));
+      border-left:4px solid var(--accent);
+      padding:14px 16px;
+      border-radius:10px;
+      color:#222;
+      font-style:italic;
+    }
+
+    .claridad{
+      font-size:14px;
+      color:var(--muted);
+      background:#fff;
+      padding:12px;
+      border-radius:10px;
+      border:1px dashed rgba(0,0,0,0.04);
+    }
+
+    footer.controls{
+      display:flex;
+      gap:10px;
+      padding:18px 28px 28px 28px;
+      align-items:center;
+    }
+    .btn{
+      padding:10px 14px;
+      border-radius:10px;
+      border:0;
+      cursor:pointer;
+      font-weight:600;
+      background:var(--accent);
+      color:white;
+      box-shadow: 0 6px 14px rgba(107,91,149,0.12);
+    }
+    .btn.ghost{
+      background:transparent;
+      color:var(--accent);
+      border:1px solid rgba(107,91,149,0.12);
+      box-shadow:none;
+      font-weight:600;
+    }
+
+    .meta{
+      margin-left:auto;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    @media (max-width:600px){
+      header { padding:18px; gap:12px; }
+      .avatar{ width:72px; height:72px; flex:0 0 72px; border-radius:12px; }
+      section.content{ padding:18px; }
+    }
+  </style>
+</head>
+<body>
+  <main id="container" role="main" aria-labelledby="titulo">
+    <header>
+      <div class="avatar" aria-hidden="true">
+        <!-- Pon aquí la foto de tu mamá. Reemplaza src por la ruta de tu imagen -->
+        <img id="foto" src="https://via.placeholder.com/400x400.png?text=Mamá" alt="Foto de mamá (reemplaza con tu imagen)" />
+      </div>
+      <div>
+        <h1 id="titulo">Para mi mamá — Con todo mi cariño</h1>
+        <p id="sub">Una dedicatoria sincera, desde lo que soy y lo que siento.</p>
+      </div>
+    </header>
+
+    <section class="content">
+      <p class="lead">
+        Mamá,
+      </p>
+
+      <div class="quote" id="mensaje">
+        Quiero que sepas que nunca quise hacer daño. A pesar de las peleas y los malentendidos, te respeto y te amo.
+        No busco cambiar opiniones ajenas; sólo quiero que sepas lo que siento: gratitud por tanto esfuerzo, cariño por tu sacrificio
+        y la esperanza de que podamos entendernos mejor con el tiempo.
+      </div>
+
+      <div class="claridad">
+        Aclaro: nunca quise hacer nada mal ni lastimarte. Si en algún momento te hice sentir así, lo siento de verdad. Este
+        pequeño gesto es para que veas, en palabras, que lo que siento por ti es respeto y amor genuino.
+      </div>
+
+      <p style="margin:0;">
+        Con todo mi cariño,
+      </p>
+      <p style="font-weight:700; margin-top:4px;" id="firma">— Tu hijo</p>
+    </section>
+
+    <footer class="controls">
+      <button class="btn" id="imprimir">Imprimir / Guardar PDF</button>
+      <button class="btn ghost" id="editar">Editar texto aquí</button>
+      <div class="meta">Puedes reemplazar la foto y el texto. Diseño responsive y listo para imprimir.</div>
+    </footer>
+  </main>
+
+  <script>
+    // Botón imprimir -> abre diálogo de impresión (para guardar como PDF)
+    document.getElementById('imprimir').addEventListener('click', function(){
+      window.print();
+    });
+
+    // Botón editar -> permite modificar el mensaje y la firma en pantalla
+    document.getElementById('editar').addEventListener('click', function(){
+      const textoActual = document.getElementById('mensaje').innerText.trim();
+      const firmaActual = document.getElementById('firma').innerText.replace('— ','').trim();
+      const nuevo = prompt('Edita el mensaje (mantén formato corto para que quepa):', textoActual);
+      if(nuevo !== null){
+        document.getElementById('mensaje').innerText = nuevo;
+      }
+      const nuevaFirma = prompt('Edita la firma:', firmaActual);
+      if(nuevaFirma !== null){
+        document.getElementById('firma').innerText = '— ' + nuevaFirma;
+      }
+      // Sugerencia para cambiar foto (no uploads): pega una URL pública
+      if(confirm('¿Quieres cambiar la imagen y tienes la URL de la foto?')){
+        const url = prompt('Pega la URL pública de la imagen (jpg/png):', '');
+        if(url) document.getElementById('foto').src = url;
+      }
+    });
+
+    // Accesibilidad: foco inicial en el título
+    document.getElementById('titulo').focus?.();
+  </script>
+</body>
+</html>
